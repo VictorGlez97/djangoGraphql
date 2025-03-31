@@ -1,4 +1,6 @@
 from django.db import models
+from typing import Optional
+import strawberry
 
 class Fruit(models.Model):
     name = models.CharField(max_length=20)
@@ -10,5 +12,14 @@ class Fruit(models.Model):
         null=True
     )
 
+@strawberry.input
+class FruitInput:
+    name: Optional[str] = None
+    color: Optional[int] = None
+
 class Color(models.Model):
     name = models.CharField(max_length=20, help_text='field description')
+
+@strawberry.input
+class ColorInput:
+    name: Optional[str]

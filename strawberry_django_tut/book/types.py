@@ -1,17 +1,29 @@
 import typing
-import strawberry_django
-from strawberry import auto
+from django.db import models
+
+# import strawberry_django
+# from strawberry import auto
 
 from . import models
+import strawberry
 
-@strawberry_django.type(models.Fruit)
-class Fruit:
-    id: auto
-    name: auto
-    color: 'Color'
+# @strawberry.django.type(models.Fruit)
+# class Fruit:
+#     id: typing.auto
+#     name: typing.auto
+#     color: 'Color'
 
-@strawberry_django.type(models.Color)
-class Color:
-    id: auto
-    name: auto
-    fruits: typing.List[Fruit]
+@strawberry.input
+class FruitInput:
+    name: typing.Optional[str] = None
+    color: typing.Optional[int] = None
+
+# @strawberry.django.type(models.Color)
+# class Color:
+#     id: strawberry.auto
+#     name: strawberry.auto
+#     fruits: typing.List[Fruit]
+
+@strawberry.input
+class ColorInput:
+    name: typing.Optional[str]
