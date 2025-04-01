@@ -76,12 +76,25 @@ WSGI_APPLICATION = 'strawberry_django_tut.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# postgresql://postgres.ergodusftlpjdwdvghub:hSv4EsPOOZoSJTI3@aws-0-us-west-1.pooler.supabase.com:6543/postgres
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.ergodusftlpjdwdvghub',
+        'PASSWORD': 'hSv4EsPOOZoSJTI3',
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',
+        'PORT': '6543'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
